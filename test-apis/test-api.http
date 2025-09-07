@@ -1,0 +1,39 @@
+### User Registration
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Rakesh",
+  "email": "rakesh@gmail.com",
+  "password": "123456"
+}
+
+### User Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "123456"
+}
+
+### Get Questions
+GET http://localhost:5000/api/exam/questions
+Authorization: Bearer {{jwt_token}}
+
+### Submit Exam
+POST http://localhost:5000/api/exam/submit
+Authorization: Bearer {{jwt_token}}
+Content-Type: application/json
+
+{
+  "answers": [
+    { "id": 1, "answer": 2 },
+    { "id": 2, "answer": 1 },
+    { "id": 3, "answer": 0 }
+  ]
+}
+
+### Get Result
+GET http://localhost:5000/api/exam/result/{{submission_id}}
+Authorization: Bearer {{jwt_token}}
